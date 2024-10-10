@@ -2,7 +2,11 @@ if hookmetamethod then
 local bypass;
     bypass = hookmetamethod(game, "__namecall", function(method, ...) 
         if getnamecallmethod() == "FireServer" and method == game.ReplicatedStorage.b then
-            game.ReplicatedStorage.SnowHit:FireServer()
+            game:GetService("ReplicatedStorage").ShowHit:FireServer()
+            game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = true
+			game:GetService("ReplicatedStorage").RetroAbility:FireServer("Bomb")
+			wait(1)
+			game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = false
         end
         return bypass(method, ...)
     end)
