@@ -1,8 +1,8 @@
 if hookmetamethod then
 local bypass;
     bypass = hookmetamethod(game, "__namecall", function(method, ...) 
-        if getnamecallmethod() == "FireServer" and method == game.ReplicatedStorage.SnowHit then
-            return
+        if getnamecallmethod() == "FireServer" and method == game.ReplicatedStorage.b then
+            game.ReplicatedStorage.SnowHit:FireServer()
         end
         return bypass(method, ...)
     end)
